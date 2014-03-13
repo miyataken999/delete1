@@ -1,0 +1,23 @@
+DELETE FROM `reviews`;
+DELETE FROM `books`;
+DELETE FROM `publishers`;
+
+-- publishers テーブル
+INSERT INTO publishers VALUES ('1', '秀和システム', '東京都港区南青山', '99-9999-9999', null, null);
+INSERT INTO publishers VALUES ('2', 'すぎなみITテクノロジー出版', '東京都杉並区高円寺', '88-8888-8888', null, null);
+INSERT INTO publishers VALUES ('3', '大阪技術堂出版', '大阪府大阪市北区梅田', '77-7777-7777', null, null);
+
+-- books テーブル
+INSERT INTO books VALUES ('1', 'みるみる分かる！PHPの基礎', 'IT業界を目指すあなたへ', '210', '杉山 正二', '1800', '2011-01-22', '1', '0', null);
+INSERT INTO books VALUES ('2', 'StrutsによるMVCモデルの理解', 'MVCの理解と応用', '181', '二本松 あきのり', '2500', '2011-02-01', '1', '0', null);
+INSERT INTO books VALUES ('3', 'シェルスクリプト・サンプル辞典', null, '420', '板橋 こずえ', '2800', '2010-11-21', '2', '0', null);
+INSERT INTO books VALUES ('4', 'SEが知っておくべき生産管理の手法', null, '130', '丘の原　空', '1400', '2010-11-23', '3', '0', null);
+INSERT INTO books VALUES ('5', 'システムトラブル解決事例集', null, '239', '犬飼 智佳子', '3200', '2011-01-09', '3', '0', null);
+INSERT INTO books VALUES ('6', 'IT企業統計年鑑', null, '912', '', '11920', '2011-01-30', '1', '0', null);
+
+-- reviews テーブル
+INSERT INTO reviews VALUES ('1', '2', 'sugizo0213', 'これまで自分が闇雲に書いていたと思わされる一冊でした。', '2011-03-11 20:20:11', null);
+INSERT INTO reviews VALUES ('2', '2', 'kotobuki', '技術書と思って買ったんですが、読んでみるとどちらかというと思想的な本でした。', '2011-03-20 11:21:00', null);
+INSERT INTO reviews VALUES ('3', '2', '0123sakura', 'とても分かりやすく書かれてました！', '2011-02-18 01:09:14', null);
+INSERT INTO reviews VALUES ('4', '3', 'kotobuki', 'おすすめです。シェルスクリプトが無駄なくきれいに書けるようになりました。', '2010-11-23 18:45:45', null);
+INSERT INTO reviews VALUES ('5', '3', 'tokaitaro', '業界1年目の新人です。難しい・・', '2010-12-02 09:10:21', null);

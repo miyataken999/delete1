@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+
+   <log>
+    <type>file</type>
+    <name>C:/propel.log</name>
+    <ident>my-app</ident>
+    <level>7</level>
+  </log>
+
+  <propel>
+    <datasources default="books">
+      <datasource id="books">
+        <adapter>mysql</adapter> <!-- sqlite, mysql, myssql, oracle, or pgsql -->
+        <connection>
+          <classname>DebugPDO</classname>
+          <dsn>mysql:host=localhost;dbname=books</dsn>
+          <user>root</user>
+          <password>mysql</password>
+          <attributes>
+            <option id="ATTR_EMULATE_PREPARES">false</option>
+          </attributes>
+          <settings>
+            <setting id="charset">utf8</setting>
+          </settings>
+        </connection>
+      </datasource>
+    </datasources>
+  </propel>
+</config>

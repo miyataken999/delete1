@@ -1,0 +1,26 @@
+body {
+	background-color: #888888;
+	font-size:small;
+}
+
+h1 {
+	text-align: center;
+}
+	
+div {
+	color: #0000FF;
+	font-size: xx-small;
+}
+
+div.green {
+	color: #00FF00;
+	font-size: xx-large;
+}
+
+.red {
+	color: #FF0000;
+}
+
+.right {
+	text-align: right;
+}

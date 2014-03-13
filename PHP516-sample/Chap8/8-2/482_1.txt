@@ -1,0 +1,4 @@
+php_value session.use_cookies Off
+php_value session.use_only_cookie Off
+php_value session.use_trans_sid On
+php_value session.auto_start Off

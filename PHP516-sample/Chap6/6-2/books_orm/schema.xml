@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database name="books" defaultIdMethod="native">
+  <table name="publishers" phpName="Publisher">
+    <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
+    <column name="name" type="varchar" size="30" required="true" />
+    <column name="address" type="varchar" size="30" />
+    <column name="tel" type="varchar" size="30" />
+    <column name="email" type="varchar" size="60" />
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+      <parameter name="Charset" value="utf8"/>
+    </vendor>
+    <behavior name="soft_delete">
+      <parameter name="deleted_column" value="delete_time" />
+    </behavior>
+  </table>
+
+  <table name="books" phpName="Book">
+    <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true"/>
+    <column name="title" type="varchar" size="100" required="true" />
+    <column name="subtitle" type="varchar" size="100" />
+    <column name="page_num" type="integer" />
+    <column name="author" type="varchar" size="30" />
+    <column name="price" type="integer" />
+    <column name="publish_date" type="date" />
+    <column name="publisher_id" type="integer" />
+    <column name="cdrom_flag" type="integer" />
+    <foreign-key foreignTable="publishers">
+      <reference local="publisher_id" foreign="id"/>
+    </foreign-key>
+    <behavior name="soft_delete">
+      <parameter name="deleted_column" value="delete_time" />
+    </behavior>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+      <parameter name="Charset" value="utf8"/>
+    </vendor>
+  </table>
+
+  <table name="reviews" phpName="Review">
+    <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
+    <column name="book_id" type="integer" />
+    <column name="reviewer" type="varchar" size="20" />
+    <column name="review" type="longvarchar" />
+    <column name="review_time" type="timestamp" />
+    <behavior name="soft_delete">
+      <parameter name="deleted_column" value="delete_time" />
+    </behavior>
+    <index name="reviews_idx01">
+      <index-column name="reviewer" />
+    </index>
+    <foreign-key foreignTable="books">
+      <reference local="book_id" foreign="id"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+      <parameter name="Charset" value="utf8"/>
+    </vendor>
+  </table>
+</database>

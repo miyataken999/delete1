@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books>
+ <book>
+  <title>みるみる分かる！PHPの基礎</title>
+  <author>今川泉 絵里子</author>
+  <price>2000</price>
+  <reviews>
+    <review>
+      <reviewer-id>tanaka0121</reviewer-id>
+      <comment>とっても分かりやすい本でした。</comment>
+    </review>
+    <review>
+      <reviewer-id>h_otsuka</reviewer-id>
+      <comment>うーん、プログラム経験者としてはちょっと退屈でしたね。</comment>
+    </review>
+  </reviews>
+ </book>
+ <book>
+  <title>StrutsによるMVCモデルの理解</title>
+  <author type="main">二本松 あきのり</author>
+  <author type="sub">小林 松男</author>
+  <price>1500</price>
+ </book>
+ <book>
+  <title>IT企業統計年鑑</title>
+  <author></author>
+  <price>3800</price>
+ </book>
+</books>

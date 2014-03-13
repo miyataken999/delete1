@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+<title>Safari + GPS</title>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<script type="text/javascript">
+function init() {
+	//現在位置を取得
+	navigator.geolocation.getCurrentPosition(
+		function(position) {
+
+			var lat = position.coords.latitude;		//現在地緯度
+			var lng = position.coords.longitude;	//現在地経度
+		
+		
+			var currentPos = lat+","+lng;
+		
+			//PHPと通信を行う
+			var xhr = new XMLHttpRequest();
+			xhr.open("POST","491_3.php",false);
+			xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+			xhr.send('lat='+lat+'&lng='+lng);	//現在地をPHPにPOST
+			var routeTarget = xhr.responseText;	//PHPで出力された文字列を取得
+
+			goGoogleMap(currentPos+','+routeTarget);
+		}
+	);
+
+
+}
+
+function goGoogleMap(Points){
+
+	var route = Points.split(",");
+
+	directions = new google.maps.DirectionsService();
+	directionRenderer = new google.maps.DirectionsRenderer();
+	
+	var mapOptions = {  
+        zoom: 17,  
+        mapTypeId: google.maps.MapTypeId.ROADMAP,  					//地図タイプ
+        center: new google.maps.LatLng(route[0]+','+route[1])		//現在位置  
+    };  
+	
+	map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+	directionRenderer.setMap(map);
+ 	directionRenderer.setPanel(document.getElementById("route"));
+
+	directions.route(  
+        { // ルート リクエスト  
+          'origin'     : route[0]+','+route[1],     //出発地点  
+          'destination': route[2]+','+route[3],		//到着地点  
+          'travelMode' : google.maps.DirectionsTravelMode.DRIVING 
+        },  
+        function(results, status) { // ルート結果callback関数  
+            directionRenderer.setDirections(results);  
+         });  
+}
+</script>
+</head>
+<body onload=init()>
+<div id="map_canvas" style="width:100%;height:60%;"></div>
+<div id="route" style="width:100%;height:40%"></div>
+</body>
+</html>

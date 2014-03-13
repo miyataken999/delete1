@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books xmlns:bk="http://example.com/dtd/book" xmlns:rv="http://example.com/dtd/review">
+ <bk:book>
+  <bk:title>みるみる分かる！PHPの基礎</bk:title>
+  <bk:author type="main" nation="japan">今川泉 絵里子</bk:author>
+  <bk:price>2000</bk:price>
+  <rv:reviews>
+    <rv:review>
+      <rv:reviewer-id>tanaka0121</rv:reviewer-id>
+      <rv:comment>とっても分かりやすい本でした。</rv:comment>
+    </rv:review>
+    <rv:review>
+      <rv:reviewer-id>h_otsuka</rv:reviewer-id>
+      <rv:comment>うーん、プログラム経験者としてはちょっと退屈でしたね。</rv:comment>
+    </rv:review>
+  </rv:reviews>
+ </bk:book>
+ <bk:book>
+  <bk:title>StrutsによるMVCモデルの理解</bk:title>
+  <bk:author type="main" nation="japan">二本松 あきのり</bk:author>
+  <bk:author type="sub" nation="japan">小林 松男</bk:author>
+  <bk:price>1500</bk:price>
+ </bk:book>
+ <bk:book>
+  <bk:title>IT企業統計年鑑</bk:title>
+  <bk:author></bk:author>
+  <bk:price>3800</bk:price>
+ </bk:book>
+</books>
